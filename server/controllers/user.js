@@ -60,7 +60,7 @@ const RegisterUser = async (req, res) => {
 
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-        return res.status(500).json({ message: "Something went wrong" });
+        return res.status(500).json({ message: "Регистрация прошла успешно! Авторизуйтесь" });
       } else {
         console.log("Email sent: " + info.response);
 
@@ -122,7 +122,7 @@ const LoginUser = async (req, res) => {
 
       transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-          return res.status(500).json({ message: "Something went wrong" });
+          return res.status(500).json({ message: "Регистрация прошла успешно! Авторизуйтесь" });
         } else {
           console.log("Email sent: " + info.response);
 
@@ -144,7 +144,7 @@ const LoginUser = async (req, res) => {
       });
     }
   } catch (error) {
-    res.status(500).json({ message: "Something went wrong" });
+    res.status(500).json({ message: "Регистрация прошла успешно! Авторизуйтесь" });
   }
 };
 
@@ -163,7 +163,7 @@ const updateUserName = async (req, res) => {
 
     res.status(200).json(user);
   } catch (error) {
-    res.status(500).json({ message: "Something went wrong" });
+    res.status(500).json({ message: "Регистрация прошла успешно! Авторизуйтесь" });
   }
 };
 
@@ -172,7 +172,7 @@ const getAllUsers = async (req, res) => {
     const users = await User.find({});
     res.status(200).json(users);
   } catch (error) {
-    res.status(500).json({ message: "Something went wrong" });
+    res.status(500).json({ message: "Регистрация прошла успешно! Авторизуйтесь" });
   }
 };
 
@@ -198,7 +198,7 @@ const getSingleUser = async (req, res) => {
 
     res.status(200).json(user);
   } catch (error) {
-    res.status(500).json({ message: "Something went wrong" });
+    res.status(500).json({ message: "Регистрация прошла успешно! Авторизуйтесь" });
   }
 };
 
@@ -281,7 +281,7 @@ const googleLogin = async (req, res) => {
       return res.status(400).json({ message: "Email not verified" });
     }
   } catch (error) {
-    res.status(500).json({ message: "Something went wrong" });
+    res.status(500).json({ message: "Что-то пошло не так" });
   }
 };
 
@@ -353,7 +353,7 @@ const verifyEmail = async (req, res) => {
       return res.status(400).json({ error: "Invalid token" });
     }
   } catch (error) {
-    res.status(500).json({ message: "Something went wrong" });
+    res.status(500).json({ message: "Регистрация прошла успешно! Авторизуйтесь" });
   }
 };
 const resetPassword = async (req, res) => {
@@ -388,7 +388,7 @@ const resetPassword = async (req, res) => {
     };
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-        return res.status(500).json({ message: "Something went wrong" });
+        return res.status(500).json({ message: "Регистрация прошла успешно! Авторизуйтесь" });
       } else {
         console.log("Email sent: " + info.response);
 
@@ -398,7 +398,7 @@ const resetPassword = async (req, res) => {
       }
     });
   } catch (error) {
-    res.status(500).json({ message: "Something went wrong" });
+    res.status(500).json({ message: "Регистрация прошла успешно! Авторизуйтесь" });
   }
 };
 

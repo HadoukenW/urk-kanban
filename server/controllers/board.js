@@ -43,7 +43,7 @@ const createBoard = async (req, res) => {
     return res.status(201).json({ finalBoard });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: "Something went wrong", error });
+    res.status(500).json({ message: "Что-то пошло не так", error });
   }
 };
 
@@ -74,13 +74,13 @@ const deleteBoard = async (req, res) => {
 
       return res
         .status(200)
-        .json({ board, message: "Board deleted successfully" });
+        .json({ board, message: "Доска удалена успешно" });
     } else {
-      return res.status(404).json({ message: "Board not found" });
+      return res.status(404).json({ message: "Доска не найдена" });
     }
   } catch (err) {
     console.log(err);
-    return res.status(500).json({ message: "Something went wrong", err });
+    return res.status(500).json({ message: "Что-то пошло не так", err });
   }
 };
 
@@ -120,7 +120,7 @@ const updateTaskOrder = async (req, res) => {
 
         return res
           .status(200)
-          .json({ task, sourceColumn,destinationColumn, message: "Task reordered successfully" });
+          .json({ task, sourceColumn,destinationColumn, message: "Порядок задач изменён успешно" });
       }
     } else {
       const column = await Column.findById(sourceColumnId);
@@ -132,14 +132,14 @@ const updateTaskOrder = async (req, res) => {
       return res.status(200).json({
         task,
         column,
-        message: " Task reordered successfully in the same column",
+        message: " Порядок задачи изменён успешно",
       });
     }
 
-    return res.status(200).json({ message: "Board updated successfully" });
+    return res.status(200).json({ message: "Доска успешно обновлена" });
   } catch (err) {
     console.error(err);
-    return res.status(500).json({ message: "Something went wrong", err });
+    return res.status(500).json({ message: "Что-то пошло не так", err });
   }
 };
 
@@ -147,7 +147,7 @@ const editNameDescription = async (req, res) => {
   const { boardId, title, description, status } = req.body;
   try {
     if (!boardId)
-      return res.status(400).json({ message: "Board id is required" });
+      return res.status(400).json({ message: "Доска необходима" });
 
     const board = await Board.findByIdAndUpdate(
       boardId,
@@ -161,7 +161,7 @@ const editNameDescription = async (req, res) => {
     return res.status(200).json({ board });
   } catch (err) {
     console.error(err);
-    return res.status(500).json({ message: "Something went wrong", err });
+    return res.status(500).json({ message: "Что-то пошло не так", err });
   }
 };
 

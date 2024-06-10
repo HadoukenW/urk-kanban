@@ -70,7 +70,7 @@ const AllProjects = ({ allProjects, setAllProjects }) => {
 
   // _______ Filters for projects  _______
   const [projects, setProjects] = useState([]);
-  const filters = ["Все проекты", "Отмеченные звездой", "Предоставлены другими", "Заархивированные"];
+  const filters = ["Все проекты", "Отмеченные звездой", "Предоставленны другими"];
   const [selectedFilter, setSelectedFilter] = useState(
     localStorage.getItem("selectedFilter") || filters[0]
   );
@@ -96,7 +96,7 @@ const AllProjects = ({ allProjects, setAllProjects }) => {
         (project) => project?.starred
       );
       setProjects(starredFirst);
-    } else if (selectedFilter === "Предоставлены другими") {
+    } else if (selectedFilter === "Предоставленны другими") {
       const sharedWithMe = [...allProjects].filter(
         (project) => project?.userId?._id !== user._id
       );
