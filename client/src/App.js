@@ -181,7 +181,7 @@ const App = () => {
                   path="/projects/:projectId/board/:boardId"
                   element={<SingleBoard />}
                 />
-                <Route path="/feedback" element={<Feedback />} />
+                
                 <Route path="/people" element={<People />} />
                 {isAdmin && (
                   <Route path="/all-feedbacks" element={<AllFeedbacks />} />
